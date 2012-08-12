@@ -1258,9 +1258,9 @@ void controller::edit_urls_file() {
 	const char * editor;
 
 	editor = getenv("VISUAL");
-	if (!editor)
+	if (editor == NULL)
 		editor = getenv("EDITOR");
-	if (!editor)
+	if (editor == NULL)
 		editor = "vi";
 
 	std::string cmdline = utils::strprintf("%s \"%s\"", editor, utils::replace_all(url_file,"\"","\\\"").c_str());
